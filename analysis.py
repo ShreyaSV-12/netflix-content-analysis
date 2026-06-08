@@ -3,14 +3,15 @@ import matplotlib.pyplot as plt
 
 df = pd.read_csv("netflix_titles.csv")
 
-top_years = df["release_year"].value_counts().head(10)
+content_type = df["type"].value_counts()
 
-top_years.plot(kind="bar")
+plt.figure(figsize=(6,4))
+content_type.plot(kind="bar")
 
-plt.title("Top 10 Release Years on Netflix")
-plt.xlabel("Year")
-plt.ylabel("Number of Titles")
+plt.title("Movies vs TV Shows on Netflix")
+plt.xlabel("Content Type")
+plt.ylabel("Count")
 
 plt.tight_layout()
-plt.savefig("netflix_release_years.png")
+plt.savefig("movies_vs_tvshows.png")
 plt.show()
